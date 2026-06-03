@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">HeartHealth</string>
+    <string name="notification_channel_name">Medication Reminders</string>
+    <string name="notification_channel_description">Reminders to take your medications on time</string>
+</resources>
