@@ -15,6 +15,9 @@
     <!-- Vibrate for notifications -->
     <uses-permission android:name="android.permission.VIBRATE" />
 
+    <!-- Internet for Firebase -->
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:name=".HeartHealthApp"
         android:allowBackup="true"

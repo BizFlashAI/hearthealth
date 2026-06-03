@@ -1,8 +1,8 @@
 # HeartHealth
 
-A personal, local-only Android app for managing heart health — built with Kotlin, Jetpack Compose, Room, and the Google Generative AI (Gemini) SDK.
+A personal Android app for managing heart health — built with Kotlin, Jetpack Compose, Room, Firebase, and the Google Generative AI (Gemini) SDK.
 
-## Features (Phase 1)
+## Features
 
 - **Medication Entry** — Add medications with name and dosage
 - **Dosage Scheduler** — Set multiple reminder times per medication, powered by AlarmManager for local push notifications
@@ -10,6 +10,8 @@ A personal, local-only Android app for managing heart health — built with Kotl
 - **Daily Journal** — Quick text entries for logging feelings and symptoms post-dosage
 - **Lifestyle Mock-Injector** — Simulate daily exercise/heart-rate/step data with one tap
 - **Medication Deep-Dive** — Tap any medication to get an AI-powered breakdown via Gemini (purpose, mechanism, side effects, tips)
+- **Firebase Auth** — Anonymous sign-in, email/password, or link anonymous to email account
+- **Cloud Sync** — Push/pull all data (medications, reminders, journal, lifestyle) to/from Firestore
 
 ## Tech Stack
 
@@ -19,6 +21,7 @@ A personal, local-only Android app for managing heart health — built with Kotl
 | UI | Jetpack Compose + Material 3 |
 | Local DB | Room (SQLite) |
 | Notifications | AlarmManager + NotificationCompat |
+| Cloud | Firebase Auth + Firestore |
 | AI | Google Generative AI SDK (Gemini 2.0 Flash) |
 | Build | Gradle 8.9 / AGP 8.7.3 |
 | Min SDK | 26 (Android 8.0) |
@@ -57,7 +60,9 @@ app/src/main/java/com/hearthealth/app/
 ├── data/
 │   ├── entity/                # Room entities (Medication, Reminder, JournalEntry, LifestyleData)
 │   ├── dao/                   # DAOs for each entity
-│   └── db/AppDatabase.kt     # Room database singleton
+│   ├── db/AppDatabase.kt     # Room database singleton
+│   ├── repository/AuthRepository.kt  # Firebase Auth wrapper
+│   └── sync/FirestoreSyncService.kt  # Firestore push/pull
 ├── notification/
 │   ├── ReminderAlarmReceiver.kt  # BroadcastReceiver for alarms
 │   ├── ReminderScheduler.kt     # AlarmManager scheduling logic
@@ -69,8 +74,8 @@ app/src/main/java/com/hearthealth/app/
     └── screens/               # Compose UI screens
 ```
 
-## Phase 2 (Planned)
-- Firebase Firestore/Auth integration for cloud syncing
+## Next Steps
 - Real wearable data via Health Connect API
 - Medication interaction checker
 - Export/share reports
+- Automatic background sync

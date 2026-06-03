@@ -15,6 +15,7 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.DirectionsRun
 import androidx.compose.material.icons.automirrored.filled.MenuBook
+import androidx.compose.material.icons.filled.AccountCircle
 import androidx.compose.material.icons.filled.Edit
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.LocalPharmacy
@@ -40,7 +41,8 @@ fun HomeScreen(
     onNavigateToMedications: () -> Unit,
     onNavigateToJournal: () -> Unit,
     onNavigateToLifestyle: () -> Unit,
-    onNavigateToDeepDive: () -> Unit
+    onNavigateToDeepDive: () -> Unit,
+    onNavigateToProfile: () -> Unit
 ) {
     Scaffold(
         topBar = {
@@ -107,6 +109,12 @@ fun HomeScreen(
                 subtitle = "AI-powered medication info via Gemini",
                 icon = Icons.AutoMirrored.Filled.MenuBook,
                 onClick = onNavigateToDeepDive
+            )
+            HomeCard(
+                title = "Profile & Cloud Sync",
+                subtitle = "Sign in and sync data to Firebase",
+                icon = Icons.Filled.AccountCircle,
+                onClick = onNavigateToProfile
             )
         }
     }
